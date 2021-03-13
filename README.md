@@ -1,12 +1,12 @@
-## Micronaut 2.4.0 Documentation
+## Failing Docker on Jetty?
 
-- [User Guide](https://docs.micronaut.io/2.4.0/guide/index.html)
-- [API Reference](https://docs.micronaut.io/2.4.0/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/2.4.0/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
----
+Steps to Reproduce:
 
-## Feature http-client documentation
+```
+./gradlew clean dockerBuild
+docker run -p 127.0.0.1:8080:8080 simple-app:latest
+``` 
 
-- [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
+If server runtime is set to "netty", then `curl http://localhost:8080/hello` successfully returns "hello world".
 
+If server runtime is set to "jetty" then `curl http://localhost:8080/hello` successfully returns "curl: (52) Empty reply from server".

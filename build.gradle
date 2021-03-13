@@ -11,7 +11,7 @@ repositories {
 }
 
 micronaut {
-    runtime("netty")
+    runtime("jetty") // works with netty, but not with jetty
     testRuntime("junit5")
     processing {
         incremental(true)
